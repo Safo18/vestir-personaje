@@ -12,6 +12,7 @@ let worn = {};
 // --- Definir prendas ---
 const ITEMS = {
   const ITEMS = {
+    // Camiseta_01 
   "Camiseta_01": { 
       slot: "torso",
       style: "normal",
@@ -22,7 +23,8 @@ const ITEMS = {
           P2: "images/P2_camiseta_01.png"  // versión para personaje 2
            }
   },
-
+   
+   // P1_camiseta_02
    "P1_camiseta_02": { 
       slot: "torso",
       style: "elegante",
@@ -33,6 +35,7 @@ const ITEMS = {
        }
   },
 
+   // P1_falda_01
     "P1_falda_01": { 
       slot: "legs",
       style: "elegante",
@@ -43,6 +46,7 @@ const ITEMS = {
        }
   },
 
+   // P1_falda_02
     "P1_falda_02": { 
       slot: "legs",
       style: "normal",
@@ -53,6 +57,7 @@ const ITEMS = {
        }
   },
 
+   // P1_vestido_01
     "P1_vestido_01": { 
       slot: "torso",
       style: "normal",
@@ -63,6 +68,7 @@ const ITEMS = {
        }
   },
 
+   // P2_pendientes_01
     "P2_pendientes_01": { 
       slot: "head",
       style: "hippie",
@@ -72,7 +78,8 @@ const ITEMS = {
           P1: "images/P2_pendientes_01", // versión para personaje 1
        }
   },
-       
+
+    // P2_pendientes_02
     "P2_pendientes_02": { 
       slot: "head",
       style: "hippie",
@@ -82,7 +89,8 @@ const ITEMS = {
           P1: "images/P2_pendientes_02", // versión para personaje 1
        }
   },
-       
+
+    // P2_vestido_01
     "P2_vestido_01": { 
       slot: "torso",
       style: "hippie",
@@ -93,6 +101,7 @@ const ITEMS = {
        }
   },
 
+    // P2_vestido_02
      "P2_vestido_02": { 
       slot: "torso",
       style: "elegante",
