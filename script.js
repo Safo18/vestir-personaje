@@ -1,8 +1,10 @@
 // --- Definir personajes ---
 const CHARACTERS = {
-  p1: { name: "Luna", style:"normal", colors:["rojo","lila"] },
-  p2: { name: "Maxy", style:"hippie", colors:["verde","amarillo"] }
+ const CHARACTERS = {
+  P1: { name: "Luna", base: "images/P1_base.png", style:"normal", colors:["rojo","lila"] },
+  P2: { name: "Max", base: "images/P2_base.png", style:"hippie", colors:["verde","amarillo"] }
 };
+
 
 
 let currentChar = CHARACTERS.p1;
@@ -61,15 +63,33 @@ function applyItem(item){
 
 
 // --- Escaneo QR ---
-function onScanSuccess(decodedText){
-  const id = decodedText.trim();
-  const item = ITEMS[id];
-  if(!item){
-    alert(`Carta no registrada: ${id}`);
-    return;
+function onScanSuccess(decodedText) {
+  if (CHARACTERS[decodedText]) {
+    // Es un personaje
+    currentChar = CHARACTERS[decodedText];
+
+    // Cambiar imagen base
+    document.getElementById("base-img").src = currentChar.base;
+
+    // Limpiar prendas anteriores
+    worn = {};
+    document.getElementById("slot-head").src = "";
+    document.getElementById("slot-torso").src = "";
+    document.getElementById("slot-legs").src = "";
+    document.getElementById("slot-feet").src = "";
+
+    // Reiniciar puntos
+    score = 0;
+    updateScore();
+
+    return; // termina aquí porque es un personaje
   }
-  applyItem(item);
+
+  // Si no es personaje, entonces es una prenda
+  const item = ITEMS[decodedText];
+  if (item) applyItem(item);
 }
+
 
 // --- Inicializar lector ---
 const html5QrScanner = new Html5QrcodeScanner("qr-reader",{fps:8, qrbox:250});
