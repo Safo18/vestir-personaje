@@ -1,0 +1,29 @@
+body{
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#character-area{
+  position: relative;
+  width: 360px;
+  height: 540px;
+}
+
+#character-area img{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+}
+
+.slot{
+  pointer-events: none;
+}
+
+#qr-reader{
+  margin-top: 20px;
+}
