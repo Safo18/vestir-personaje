@@ -20,6 +20,8 @@ const ITEMS = {
       files: {
           P1: "images/P1_camiseta_01.png", // versión para personaje 1
           P2: "images/P2_camiseta_01.png"  // versión para personaje 2
+           }
+  },
 
    "P1_camiseta_02": { 
       slot: "torso",
@@ -28,6 +30,8 @@ const ITEMS = {
       points_base: 0,
       files: {
           P1: "images/P1_camiseta_02.png", // versión para personaje 1
+       }
+  },
 
     "P1_falda_01": { 
       slot: "legs",
@@ -36,6 +40,8 @@ const ITEMS = {
       points_base: 0,
       files: {
           P1: "images/P1_falda_01.png", // versión para personaje 1
+       }
+  },
 
     "P1_falda_02": { 
       slot: "legs",
@@ -44,6 +50,8 @@ const ITEMS = {
       points_base: 0,
       files: {
           P1: "images/P1_falda_02.png", // versión para personaje 1
+       }
+  },
 
     "P1_vestido_01": { 
       slot: "torso",
@@ -52,6 +60,8 @@ const ITEMS = {
       points_base: 0,
       files: {
           P1: "images/P1_vestido_01.png", // versión para personaje 1
+       }
+  },
 
     "P2_pendientes_01": { 
       slot: "head",
@@ -60,6 +70,8 @@ const ITEMS = {
       points_base: 0,
       files: {
           P1: "images/P2_pendientes_01", // versión para personaje 1
+       }
+  },
        
     "P2_pendientes_02": { 
       slot: "head",
@@ -68,6 +80,8 @@ const ITEMS = {
       points_base: 0,
       files: {
           P1: "images/P2_pendientes_02", // versión para personaje 1
+       }
+  },
        
     "P2_vestido_01": { 
       slot: "torso",
@@ -76,6 +90,8 @@ const ITEMS = {
       points_base: 0,
       files: {
           P1: "images/P2_vestido_01", // versión para personaje 1
+       }
+  },
 
      "P2_vestido_02": { 
       slot: "torso",
@@ -84,8 +100,10 @@ const ITEMS = {
       points_base: 0,
       files: {
           P1: "images/P2_vestido_02", // versión para personaje 1
-
+        }
+  }
 };
+
 
 // --- Actualizar UI ---
 function updateScore(){
