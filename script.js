@@ -120,34 +120,30 @@ function updateScore(){
 }
 
 function applyItem(item){
-  // 1️⃣ Aplicar la prenda al personaje
-  worn[item.slot] = item;
-  const slotEl = document.getElementById(`slot-${item.slot}`);
-  slotEl.src = item.file;
+  // Selecciona el archivo correcto según el personaje activo
+  const file = item.files[currentCharId]; // currentCharId = "P1" o "P2"
 
-  // 2️⃣ Crear un elemento imagen para el mensaje
+  // Aplica la prenda
+  worn[item.slot] = item;
+  document.getElementById(`slot-${item.slot}`).src = file;
+
+  // Crear mensaje de acierto/fallo
   const mensaje = document.createElement('img');
-  mensaje.style.width = "200px";    // ajustar tamaño si quieres
+  mensaje.style.width = "200px";
   mensaje.style.height = "auto";
   mensaje.style.marginBottom = "10px";
 
-  // 3️⃣ Comprobar si acierta estilo y color
-  if(item.style === currentChar.style && currentChar.colors.includes(item.color)) {
-    const p = 8;  // puntos si acierta ambos
+  // Solo suma puntos si coincide estilo y color
+  if(item.style === currentChar.style && currentChar.colors.includes(item.color)){
+    const p = 8;
     score += p;
     updateScore();
-
-    // Imagen para correcto
     mensaje.src = "images/correcto.png";
-
   } else {
-    // Imagen para fallo
     mensaje.src = "images/incorrecto.png";
   }
 
-  // 4️⃣ Añadir la imagen al contenedor
-  const contenedor = document.getElementById('scanned-list');
-  contenedor.prepend(mensaje);
+  document.getElementById('scanned-list').prepend(mensaje);
 }
 
 
