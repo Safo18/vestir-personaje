@@ -2,30 +2,31 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vestir personaje 2D</title>
+  <title>Juego de Vestir Personajes</title>
   <link rel="stylesheet" href="index.css">
-  <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
 </head>
 <body>
-  <h1>Juego de cartas: Vestir personaje</h1>
-  
+  <h1>Juego de Vestir Personajes</h1>
+
+  <!-- Contenedor del personaje -->
   <div id="character-area">
-    <img id="base-img" src="images/base.png" alt="Personaje base">
-    <img id="slot-head" class="slot" src="">
-    <img id="slot-torso" class="slot" src="">
-    <img id="slot-legs" class="slot" src="">
-    <img id="slot-feet" class="slot" src="">
-  </div>
-  
-  <div id="info">
-    <p>Personaje: <span id="charName">Luna</span></p>
-    <p>Puntos: <span id="score">0</span></p>
+    <img id="base-img" src="" alt="Personaje">
+    <img id="slot-head" src="" alt="Cabeza">
+    <img id="slot-torso" src="" alt="Torso">
+    <img id="slot-legs" src="" alt="Piernas">
+    <img id="slot-feet" src="" alt="Pies">
   </div>
 
-  <div id="qr-reader" style="width:300px"></div>
-  <ul id="scanned-list"></ul>
+  <!-- Puntos -->
+  <p>Puntos: <span id="score">0</span></p>
+
+  <!-- Mensajes de acierto/fallo -->
+  <div id="scanned-list"></div>
+
+  <!-- Contenedor del escáner QR -->
+  <div id="reader" style="width: 300px;"></div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
