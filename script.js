@@ -5,23 +5,86 @@ const CHARACTERS = {
   P2: { name: "Max", base: "images/P2_base.png", style:"hippie", colors:["verde","amarillo"] }
 };
 
-
-
 let currentChar = CHARACTERS.p1;
 let score = 0;
 let worn = {};
 
 // --- Definir prendas ---
 const ITEMS = {
-  "P1_camiseta_01": { slot:"torso", file:"images/P1_camiseta_01.png", style:"normal", color:"rojo", points_base:0 },
-  "P1_camiseta_02": { slot:"torso", file:"images/P1_camiseta_02.png", style:"elegante", color:"azul", points_base:0 },
-  "P1_falda_01": { slot:"legs", file:"images/P1_falda_01.png", style:"elegante", color:"rosa", points_base:0 },
-  "P1_falda_02": { slot:"legs", file:"images/P1_falda_02.png", style:"normal", color:"lila", points_base:0 },
-  "P1_vestido_01": { slot:"torso", file:"images/P1_vestido_01.png", style:"normal", color:"marrón", points_base:0 }
-  "P2_pendientes_01": { slot:"head", file:"images/P2_pendientes_01.png", style:"hippie", color:"amarillo", points_base:0 },
-  "P2_pendientes_02": { slot:"head", file:"images/P2_pendientes_02.png", style:"hippie", color:"verde", points_base:0 },
-  "P2_vestido_01": { slot:"torso", file:"images/P2_vestido_01.png", style:"hippie", color:"verde", points_base:0 },
-  "P2_vestido_02": { slot:"torso", file:"images/P2_vestido_02.png", style:"elegante", color:"rosa", points_base:0 }
+  const ITEMS = {
+  "Camiseta_01": { 
+      slot: "torso",
+      style: "normal",
+      color: "rojo",
+      points_base: 0,
+      files: {
+          P1: "images/P1_camiseta_01.png", // versión para personaje 1
+          P2: "images/P2_camiseta_01.png"  // versión para personaje 2
+
+   "P1_camiseta_02": { 
+      slot: "torso",
+      style: "elegante",
+      color: "azul",
+      points_base: 0,
+      files: {
+          P1: "images/P1_camiseta_02.png", // versión para personaje 1
+
+    "P1_falda_01": { 
+      slot: "legs",
+      style: "elegante",
+      color: "rosa",
+      points_base: 0,
+      files: {
+          P1: "images/P1_falda_01.png", // versión para personaje 1
+
+    "P1_falda_02": { 
+      slot: "legs",
+      style: "normal",
+      color: "lila",
+      points_base: 0,
+      files: {
+          P1: "images/P1_falda_02.png", // versión para personaje 1
+
+    "P1_vestido_01": { 
+      slot: "torso",
+      style: "normal",
+      color: "marrón",
+      points_base: 0,
+      files: {
+          P1: "images/P1_vestido_01.png", // versión para personaje 1
+
+    "P2_pendientes_01": { 
+      slot: "head",
+      style: "hippie",
+      color: "amarillo",
+      points_base: 0,
+      files: {
+          P1: "images/P2_pendientes_01", // versión para personaje 1
+       
+    "P2_pendientes_02": { 
+      slot: "head",
+      style: "hippie",
+      color: "verde",
+      points_base: 0,
+      files: {
+          P1: "images/P2_pendientes_02", // versión para personaje 1
+       
+    "P2_vestido_01": { 
+      slot: "torso",
+      style: "hippie",
+      color: "verde",
+      points_base: 0,
+      files: {
+          P1: "images/P2_vestido_01", // versión para personaje 1
+
+     "P2_vestido_02": { 
+      slot: "torso",
+      style: "elegante",
+      color: "rosa",
+      points_base: 0,
+      files: {
+          P1: "images/P2_vestido_02", // versión para personaje 1
+
 };
 
 // --- Actualizar UI ---
