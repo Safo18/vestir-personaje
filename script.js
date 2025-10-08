@@ -134,31 +134,27 @@ function loadGameState() {
   currentChar = CHARACTERS[currentCharId];
   worn = state.worn || {};
 
+  // Carga el personaje base
   document.getElementById("char-base").src = currentChar.base;
 
+  // Restaurar prendas y sus capas
   for (let slot in worn) {
     const item = worn[slot];
     if (item && item.files && item.files[currentCharId]) {
-      document.getElementById(`slot-${slot}`).src = item.files[currentCharId];
+      const slotImg = document.getElementById(`slot-${slot}`);
+      slotImg.src = item.files[currentCharId];
+      
+      // Mantener la capa (z-index)
+      slotImg.style.zIndex = item.z || 1;
+
+      // Actualizar el contador de capas
+      if (item.z && item.z > layerIndex) {
+        layerIndex = item.z;
+      }
     }
   }
 }
 
-// --- Reiniciar juego ---
-function resetGame() {
-  localStorage.removeItem("dressupGameState");
-  location.reload();
-}
-
-// --- Cambiar personaje ---
-function selectCharacter(id){
-  if(!CHARACTERS[id]) return;
-  currentCharId = id;
-  currentChar = CHARACTERS[id];
-  document.getElementById("char-base").src = currentChar.base;
-  worn = {};
-  saveGameState();
-}
 
 // --- Aplicar prenda ---
 function applyItem(item){
