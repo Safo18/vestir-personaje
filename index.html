@@ -17,15 +17,22 @@
     <img id="slot-feet" class="slot" src="" alt="Pies">
   </div>
 
-  <!-- Puntuación (oculta visualmente pero usada en JS) -->
-  <p id="score" style="display: none;">Puntos: 0</p>
-
-  <!-- Contenedor de mensajes (acierto/fallo) -->
+  <!-- Contenedor del mensaje final -->
   <div id="scanned-list"></div>
 
-  <!-- Contenedor del lector QR -->
-  <div id="reader" style="width: 300px;"></div>
-  
+  <!-- Botón de comprobación final -->
+  <button id="check-outfit-btn" onclick="checkOutfit()">Comprobar look</button>
+
+  <!-- Botón de reinicio -->
+  <button id="reset-btn" onclick="resetGame()">Reiniciar juego</button>
+
+  <!-- Botones de prueba (opcional, puedes quitarlos) -->
+  <div id="test-buttons">
+    <button onclick="scanCard('P1')">Escanear Luna</button>
+    <button onclick="scanCard('P2')">Escanear Max</button>
+    <button onclick="scanCard('camiseta_01')">Escanear Camiseta</button>
+    <button onclick="scanCard('falda_01')">Escanear Falda</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
