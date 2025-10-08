@@ -1,29 +1,46 @@
-body{
-  font-family: sans-serif;
+/* Estructura general */
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  justify-content: flex-start;
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 20px;
 }
 
-#character-area{
+/* Contenedor del personaje */
+#character-area {
   position: relative;
   width: 360px;
   height: 540px;
+  margin-bottom: 20px;
 }
 
-#character-area img{
+/* Base y slots de ropa */
+#character-area img {
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
 }
 
-.slot{
-  pointer-events: none;
+.slot {
+  pointer-events: none; /* para no interferir con el escáner o clics */
 }
 
-#qr-reader{
-  margin-top: 20px;
+/* Puntuación */
+#score {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Mensajes de acierto/fallo centrados */
+#scanned-list img {
+  display: block;
+  margin: 10px auto;
+  width: 200px;
+  height: auto;
 }
