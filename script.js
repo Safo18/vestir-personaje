@@ -14,15 +14,13 @@ const CHARACTERS = {
   }
 };
 
-// Personaje activo por defecto
+// Personaje activo
 let currentCharId = "P1";
 let currentChar = CHARACTERS[currentCharId];
-
-// Variables globales
 let score = 0;
-let worn = {};
+let worn = {}; // prendas actuales
 
-// --- Definir prendas ---
+// --- Prendas disponibles ---
 const ITEMS = {
   "camiseta_01": { 
     slot: "torso",
@@ -44,16 +42,6 @@ const ITEMS = {
       P2: "images/P2_falda_01.png"
     }
   },
-  "vestido_01": { 
-    slot: "torso",
-    style: "normal",
-    color: "marrón",
-    points_base: 0,
-    files: {
-      P1: "images/P1_vestido_01.png",
-      P2: "images/P2_vestido_01.png"
-    }
-  },
   "pendientes_01": { 
     slot: "head",
     style: "hippie",
@@ -62,16 +50,6 @@ const ITEMS = {
     files: {
       P1: "images/P1_pendientes_01.png",
       P2: "images/P2_pendientes_01.png"
-    }
-  },
-  "pendientes_02": { 
-    slot: "head",
-    style: "hippie",
-    color: "verde",
-    points_base: 0,
-    files: {
-      P1: "images/P1_pendientes_02.png",
-      P2: "images/P2_pendientes_02.png"
     }
   },
   "zapatos_01": { 
@@ -86,22 +64,49 @@ const ITEMS = {
   }
 };
 
-// --- Inicialización ---
-window.onload = () => {
-  document.getElementById("char-base").src = currentChar.base;
-  updateScore();
-};
+// --- Guardar estado del juego ---
+function saveGameState() {
+  const gameState = {
+    currentCharId: currentCharId,
+    worn: worn
+  };
+  localStorage.setItem("dressupGameState", JSON.stringify(gameState));
+}
 
-// --- Función para cambiar personaje (cuando se escanea carta de personaje) ---
+// --- Cargar estado del juego ---
+function loadGameState() {
+  const saved = localStorage.getItem("dressupGameState");
+  if (!saved) return;
+  const state = JSON.parse(saved);
+
+  currentCharId = state.currentCharId || "P1";
+  currentChar = CHARACTERS[currentCharId];
+  worn = state.worn || {};
+
+  document.getElementById("char-base").src = currentChar.base;
+
+  for (let slot in worn) {
+    const item = worn[slot];
+    if (item && item.files && item.files[currentCharId]) {
+      document.getElementById(`slot-${slot}`).src = item.files[currentCharId];
+    }
+  }
+}
+
+// --- Reiniciar juego ---
+function resetGame() {
+  localStorage.removeItem("dressupGameState");
+  location.reload();
+}
+
+// --- Cambiar personaje ---
 function selectCharacter(id){
   if(!CHARACTERS[id]) return;
   currentCharId = id;
   currentChar = CHARACTERS[id];
   document.getElementById("char-base").src = currentChar.base;
   worn = {};
-  document.querySelectorAll(".clothes-slot").forEach(slot => slot.src = "");
-  score = 0;
-  updateScore();
+  saveGameState();
 }
 
 // --- Aplicar prenda ---
@@ -109,38 +114,18 @@ function applyItem(item){
   const file = item.files[currentCharId];
   if(!file) return;
 
-  // Aplica la imagen en el slot
   worn[item.slot] = item;
   document.getElementById(`slot-${item.slot}`).src = file;
-
-  // Crear mensaje visual
-  const mensaje = document.createElement("img");
-  mensaje.style.width = "200px";
-  mensaje.style.height = "auto";
-  mensaje.style.marginBottom = "10px";
-
-  // Verificar si coincide estilo y color
-  if(item.style === currentChar.style && currentChar.colors.includes(item.color)){
-    const p = 8;
-    score += p;
-    updateScore();
-    mensaje.src = "images/correcto.png";
-  } else {
-    mensaje.src = "images/fallo.png";
-  }
-
-  document.getElementById("scanned-list").prepend(mensaje);
+  saveGameState();
 }
 
-// --- Simulación de escaneo ---
+// --- Escanear carta (personaje o prenda) ---
 function scanCard(cardId){
-  // Si es un personaje
   if(CHARACTERS[cardId]){
     selectCharacter(cardId);
     return;
   }
 
-  // Si es una prenda
   const item = ITEMS[cardId];
   if(item){
     applyItem(item);
@@ -149,20 +134,44 @@ function scanCard(cardId){
   }
 }
 
-// --- Actualizar puntuación ---
-function updateScore(){
-  document.getElementById("score").innerText = "Puntos: " + score;
+// --- Comprobar look completo ---
+function checkOutfit(){
+  const mensaje = document.createElement('img');
+  mensaje.style.width = "250px";
+  mensaje.style.height = "auto";
+  mensaje.style.margin = "20px auto";
+  mensaje.style.display = "block";
+
+  let correct = true;
+  for(let slot in worn){
+    const item = worn[slot];
+    if(!item) continue;
+    if(item.style !== currentChar.style || !currentChar.colors.includes(item.color)){
+      correct = false;
+      break;
+    }
+  }
+
+  const container = document.getElementById('scanned-list');
+  container.innerHTML = "";
+  mensaje.src = correct && Object.keys(worn).length > 0
+    ? "images/correcto.png"
+    : "images/fallo.png";
+  container.appendChild(mensaje);
 }
 
-// --- Detectar parámetros en la URL y aplicar carta automáticamente ---
+// --- Cargar estado al inicio ---
+window.onload = () => {
+  loadGameState();
+};
+
+// --- Detectar parámetro ?card= para escaneo automático ---
 window.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const cardId = params.get("card");
   if (cardId) {
     setTimeout(() => {
       scanCard(cardId);
-    }, 500);
+    }, 800);
   }
 });
-
-
