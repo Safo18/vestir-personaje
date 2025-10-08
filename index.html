@@ -11,22 +11,27 @@
   <!-- Contenedor del personaje -->
   <div id="character-area">
     <img id="char-base" src="" alt="Personaje">
-    <img id="slot-head" src="" alt="Cabeza">
-    <img id="slot-torso" src="" alt="Torso">
-    <img id="slot-legs" src="" alt="Piernas">
-    <img id="slot-feet" src="" alt="Pies">
+    <img id="slot-head" class="slot" src="" alt="Cabeza">
+    <img id="slot-torso" class="slot" src="" alt="Torso">
+    <img id="slot-legs" class="slot" src="" alt="Piernas">
+    <img id="slot-feet" class="slot" src="" alt="Pies">
   </div>
 
-  <!-- Puntos -->
-  <p>Puntos: <span id="score">0</span></p>
+  <!-- Contador de puntos -->
+  <p id="score">Puntos: 0</p>
 
-  <!-- Mensajes de acierto/fallo -->
+  <!-- Contenedor de mensajes (acierto/fallo) -->
   <div id="scanned-list"></div>
 
-  <!-- Contenedor del escáner QR -->
+  <!-- Contenedor del lector QR -->
   <div id="reader" style="width: 300px;"></div>
+
+  <!-- Botones de prueba (puedes quitarlos luego) -->
+  <button onclick="scanCard('P1')">Escanear Luna</button>
+  <button onclick="scanCard('P2')">Escanear Max</button>
+  <button onclick="scanCard('camiseta_01')">Escanear Camiseta</button>
+  <button onclick="scanCard('falda_01')">Escanear Falda</button>
 
   <script src="script.js"></script>
 </body>
 </html>
-
