@@ -207,7 +207,7 @@ function checkOutfit(){
   container.innerHTML = "";
   mensaje.src = correct && Object.keys(worn).length > 0
     ? "images/correcto.png"
-    : "images/fallo.png";
+    : "images/incorrecto.png";
   container.appendChild(mensaje);
 }
 
