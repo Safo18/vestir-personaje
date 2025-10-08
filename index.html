@@ -17,20 +17,15 @@
     <img id="slot-feet" class="slot" src="" alt="Pies">
   </div>
 
-  <!-- Contador de puntos -->
-  <p id="score">Puntos: 0</p>
+  <!-- Puntuación (oculta visualmente pero usada en JS) -->
+  <p id="score" style="display: none;">Puntos: 0</p>
 
   <!-- Contenedor de mensajes (acierto/fallo) -->
   <div id="scanned-list"></div>
 
   <!-- Contenedor del lector QR -->
   <div id="reader" style="width: 300px;"></div>
-
-  <!-- Botones de prueba (puedes quitarlos luego) -->
-  <button onclick="scanCard('P1')">Escanear Luna</button>
-  <button onclick="scanCard('P2')">Escanear Max</button>
-  <button onclick="scanCard('camiseta_01')">Escanear Camiseta</button>
-  <button onclick="scanCard('falda_01')">Escanear Falda</button>
+  
 
   <script src="script.js"></script>
 </body>
