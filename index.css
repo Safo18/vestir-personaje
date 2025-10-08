@@ -1,4 +1,3 @@
-/* Estructura general */
 body {
   display: flex;
   flex-direction: column;
@@ -10,7 +9,6 @@ body {
   padding: 20px;
 }
 
-/* Contenedor del personaje */
 #character-area {
   position: relative;
   width: 360px;
@@ -18,7 +16,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Base y slots de ropa */
 #character-area img {
   position: absolute;
   top: 0;
@@ -28,19 +25,33 @@ body {
 }
 
 .slot {
-  pointer-events: none; /* para no interferir con el escáner o clics */
+  pointer-events: none;
 }
 
-/* Puntuación */
-#score {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
-
-/* Mensajes de acierto/fallo centrados */
+/* Mensaje de resultado centrado */
 #scanned-list img {
   display: block;
-  margin: 10px auto;
+  margin: 20px auto;
   width: 200px;
   height: auto;
+}
+
+/* Botones */
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#test-buttons {
+  margin-top: 20px;
 }
