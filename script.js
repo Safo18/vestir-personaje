@@ -19,6 +19,7 @@ let currentCharId = "P1";
 let currentChar = CHARACTERS[currentCharId];
 let score = 0;
 let worn = {}; // prendas actuales
+let layerIndex = 1; // controlará el orden de apilado de las prendas
 
 // --- Prendas disponibles ---
 const ITEMS = {
