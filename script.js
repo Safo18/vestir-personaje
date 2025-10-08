@@ -159,10 +159,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const cardId = params.get("card");
   if (cardId) {
-    // Esperar un instante para que cargue todo
     setTimeout(() => {
       scanCard(cardId);
     }, 500);
   }
 });
+
 
