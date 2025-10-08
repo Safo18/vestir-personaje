@@ -32,6 +32,16 @@ const ITEMS = {
       P2: "images/P2_camiseta_01.png"
     }
   },
+  "camiseta_02": { 
+    slot: "torso",
+    style: "normal",
+    color: "azul",
+    points_base: 0,
+    files: {
+      P1: "images/P1_camiseta_02.png",
+      P2: "images/P1_camiseta_02.png"
+    }
+  },
   "falda_01": { 
     slot: "legs",
     style: "elegante",
@@ -39,7 +49,47 @@ const ITEMS = {
     points_base: 0,
     files: {
       P1: "images/P1_falda_01.png",
-      P2: "images/P2_falda_01.png"
+      P2: "images/P1_falda_01.png"
+    }
+  },
+   "falda_02": { 
+    slot: "legs",
+    style: "normal",
+    color: "lila",
+    points_base: 0,
+    files: {
+      P1: "images/P1_falda_02.png",
+      P2: "images/P1_falda_02.png"
+    }
+  },
+  "vestido_01": { 
+    slot: "torso",
+    style: "normal",
+    color: "marron",
+    points_base: 0,
+    files: {
+      P1: "images/P1_vestido_01.png",
+      P2: "images/P1_vestido_01.png"
+    }
+  },
+  "P2_vestido_01": { 
+    slot: "torso",
+    style: "hippie",
+    color: "verde",
+    points_base: 0,
+    files: {
+      P1: "images/P2_vestido_01.png",
+      P2: "images/P2_vestido_01.png"
+    }
+  },
+  "vestido_02": { 
+    slot: "torso",
+    style: "elegante",
+    color: "rosa",
+    points_base: 0,
+    files: {
+      P1: "images/P2_vestido_02.png",
+      P2: "images/P2_vestido_02.png"
     }
   },
   "pendientes_01": { 
@@ -48,18 +98,18 @@ const ITEMS = {
     color: "amarillo",
     points_base: 0,
     files: {
-      P1: "images/P1_pendientes_01.png",
+      P1: "images/P2_pendientes_01.png",
       P2: "images/P2_pendientes_01.png"
     }
   },
-  "zapatos_01": { 
-    slot: "feet",
-    style: "normal",
-    color: "lila",
+  "pendientes_02": { 
+    slot: "head",
+    style: "hippie",
+    color: "verde",
     points_base: 0,
     files: {
-      P1: "images/P1_zapatos_01.png",
-      P2: "images/P2_zapatos_01.png"
+      P1: "images/P2_pendientes_02.png",
+      P2: "images/P2_pendientes_02.png"
     }
   }
 };
