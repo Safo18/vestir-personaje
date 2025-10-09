@@ -133,6 +133,13 @@ function loadGameState() {
   currentCharId = state.currentCharId || "P1";
   currentChar = CHARACTERS[currentCharId];
   worn = state.worn || {};
+}
+
+  // --- Reiniciar juego ---
+function resetGame() {
+  localStorage.removeItem("dressupGameState");
+  location.reload();
+}
 
   // Carga el personaje base
   document.getElementById("char-base").src = currentChar.base;
